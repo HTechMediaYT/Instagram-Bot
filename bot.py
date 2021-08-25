@@ -1,10 +1,9 @@
 import logging
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters, commandhandler
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters, commandhandler, Client
 import os
 from instaloader import Instaloader, Profile
 import time
-from pyrogram import Client, filters
 
 
 '''Coded by Nxt Stark 😃😃😃😃'''
