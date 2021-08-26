@@ -33,8 +33,6 @@ def acc_type(val):
 
 
 def start(update, context):
-    id = update.message.chat_id
-    name = update.message.from_user['username']
     keyboard = [[InlineKeyboardButton(
         "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
 
@@ -42,6 +40,8 @@ def start(update, context):
 
     update.message.reply_html(welcome_msg)
 
+    id = update.message.chat_id
+    name = update.message.from_user['username']
 
 def help_msg(update, context):
     keyboard = [[InlineKeyboardButton(
