@@ -44,7 +44,7 @@ def help_msg(update, context):
 
     reply_markup = InlineKeyboardMarkup(keyboard)
    
-    update.message.reply_text("Nothing to help ,This is way to simple 😂😂")
+    update.message.reply_text('Nothing to help ,This is way to simple 😂😂:', reply_markup=reply_markup)
 
 
 def contact(update, context):
