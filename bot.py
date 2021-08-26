@@ -6,7 +6,7 @@ from instaloader import Instaloader, Profile
 import time
 
 
-'''Coded by Anish Gowda 😃😃😃😃'''
+'''Coded by Nxt Stark 😃😃😃😃'''
 L = Instaloader()
 TOKEN = os.getenv("BOT_TOKEN")
 APP_NAME = os.getenv("APP_NAME")
@@ -14,8 +14,9 @@ TELEGRAM_USERNAME = os.getenv("TELEGRAM_USERNAME")
 
 welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  <i>Send me anyones instagram username to get their DP</i>
- ex : <b>virat.kohli</b> , <b>thenameisyash</b> etc'''
-
+ ex : <b>nxtstark</b> , <b>h_tech_media</b> etc
+ 
+ <b>Made By @HTechMedia</b>'''
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
@@ -43,7 +44,8 @@ def help_msg(update, context):
 
 def contact(update, context):
     keyboard = [[InlineKeyboardButton(
-        "Contact", url=f"telegram.me/{TELEGRAM_USERNAME}")], ]
+        "Devoloper", url=f"telegram.me/NxtStark")], [InlineKeyboardButton(
+        "Support", url=f"telegram.me/HTechMedia")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
