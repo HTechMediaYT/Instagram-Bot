@@ -60,6 +60,11 @@ def username(update, context):
     msg = update.message.reply_text("Downloading...")
     query = update.message.text
     chat_id = update.message.chat_id
+    keyboard = [[InlineKeyboardButton(
+        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
     try:
         user = Profile.from_username(L.context, query)
         caption_msg = f'''📛*Name*📛: {user.full_name} \n😁*Followers*😁: {user.followers} \n🤩*Following*🤩: {user.followees}\
