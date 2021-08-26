@@ -1,72 +1,20 @@
 import logging
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters, commandhandler, Client
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, MessageHandler, Filters, commandhandler
 import os
 from instaloader import Instaloader, Profile
 import time
 
 
-'''Coded by Nxt Stark 😃😃😃😃'''
+'''Coded by Anish Gowda 😃😃😃😃'''
 L = Instaloader()
 TOKEN = os.getenv("BOT_TOKEN")
 APP_NAME = os.getenv("APP_NAME")
 TELEGRAM_USERNAME = os.getenv("TELEGRAM_USERNAME")
 
-START_TEXT = '''<b>Welcome To the Bot</b>🖐🖐
+welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  <i>Send me anyones instagram username to get their DP</i>
- ex : <b>nxt.stark</b> , <b>h_tech_media</b> etc
- 
- 
-<b>Made by @HTechMedia</b>'''
-HELP_TEXT ='''
-<b>Send any Instagram Username With Out '@' Simple.</b>
-
-Made by @HTechMedia'''
-ABOUT_TEXT = '''
-<b>- Bot : QRCode-Telegram-bot</b>
-<b>- Creator : [NxtStark](https://t.me/nxtstark)</b>
-<b>- Channel : [HTechMedia](https://t.me/htechmedia)</b>
-<b>- Source :[Click Here](https://github.com/HTechMediaYT/Instagram-Bot)</b>
-<b>- Language : [Python3](https://python.org)</b>
-<b>- Library : [Payogram](https://pyrogram.org)</b>
-<b>- Server : [Herokku](https://heroku.com)</b>
-'''
-START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Channel', url='https://telegram.me/HTechMedia'),
-        InlineKeyboardButton('Support', url='https://telegram.me/HTechMediaSupport')
-        ],[
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('About', callback_data='about'),
-        InlineKeyboardButton('Close', callback_data='close')
-        ]]
-    )
-HELP_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('About', callback_data='about'),
-        InlineKeyboardButton('Close', callback_data='close')
-        ]]
-    )
-ABOUT_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('Close', callback_data='close')
-        ]]
-    )
-ERROR_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('Close', callback_data='close')
-        ]]
-    )
-BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Join Updates Channel', url='https://telegram.me/HTechMedia')
-        ]]
-    )
-
+ ex : <b>virat.kohli</b> , <b>thenameisyash</b> etc'''
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -82,42 +30,20 @@ def acc_type(val):
 
 # Start the Bot
 
-@Client.on_callback_query()
-async def cb_data(bot, update):
-    if update.data == "home":
-        await update.message.edit_text(
-            text=START_TEXT.format(update.from_user.mention),
-            reply_markup=START_BUTTONS,
-            disable_web_page_preview=True
-        )
-    elif update.data == "help":
-        await update.message.edit_text(
-            text=HELP_TEXT,
-            reply_markup=HELP_BUTTONS,
-            disable_web_page_preview=True
-        )
-    elif update.data == "about":
-        await update.message.edit_text(
-            text=ABOUT_TEXT,
-            reply_markup=ABOUT_BUTTONS,
-            disable_web_page_preview=True
-        )
-    else:
-        await update.message.delete()
 
-@Client.on_message(filters.private & filters.command(["start"]))
-async def start(bot, update):
-    await update.reply_text(
-        text=START_TEXT.format(update.from_user.mention),
-        disable_web_page_preview=True,
-        reply_markup=START_BUTTONS
-    )
+def start(update, context):
+    id = update.message.chat_id
+    name = update.message.from_user['username']
+    update.message.reply_html(welcome_msg)
 
+
+def help_msg(update, context):
+    update.message.reply_text("Nothing to help ,This is way to simple 😂😂")
 
 
 def contact(update, context):
     keyboard = [[InlineKeyboardButton(
-        "Contact", url=f"telegram.me/NxtStark")], ]
+        "Contact", url=f"telegram.me/{TELEGRAM_USERNAME}")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -127,13 +53,13 @@ def contact(update, context):
 
 
 def username(update, context):
-    msg = update.message.reply_text("Downloading Baby...")
+    msg = update.message.reply_text("Downloading...")
     query = update.message.text
     chat_id = update.message.chat_id
     try:
         user = Profile.from_username(L.context, query)
         caption_msg = f'''📛*Name*📛: {user.full_name} \n😁*Followers*😁: {user.followers} \n🤩*Following*🤩: {user.followees}\
-         \n🧐*Account Type*🧐: {acc_type(user.is_private)} \n@NxtStark \n\nThank You For Using The bot 😀😀'''
+         \n🧐*Account Type*🧐: {acc_type(user.is_private)} \n\nThank You For Using The bot 😀😀'''
         context.bot.send_photo(
             chat_id=chat_id, photo=user.profile_pic_url,
             caption=caption_msg, parse_mode='MARKDOWN')
