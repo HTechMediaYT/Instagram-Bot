@@ -38,7 +38,7 @@ def start(update, context):
     update.message.reply_html(welcome_msg)
 
 
-def help(update, context):
+def help_msg(update, context):
     keyboard = [[InlineKeyboardButton(
         "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
 
