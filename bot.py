@@ -32,7 +32,8 @@ def acc_type(val):
 # Start the Bot
 
 
-def start(update, context):    keyboard = [[InlineKeyboardButton(
+def start(update, context):
+      keyboard = [[InlineKeyboardButton(
         "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
