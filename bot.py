@@ -44,8 +44,7 @@ def help_msg(update, context):
 
 def contact(update, context):
     keyboard = [[InlineKeyboardButton(
-        "Devoloper", url=f"telegram.me/NxtStark")], [InlineKeyboardButton(
-        "Support", url=f"telegram.me/HTechMedia")], ]
+        "Devoloper", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support", url=f"telegram.me/HTechMedia")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
