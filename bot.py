@@ -38,15 +38,14 @@ def start(update, context):
     update.message.reply_html(welcome_msg)
 
 
-def help_msg(update, context):
-     keyboard = [[InlineKeyboardButton(
+def contact(update, context):
+    keyboard = [[InlineKeyboardButton(
         "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-   
-    update.message.reply_text('Nothing to help ,This is way to simple 😂😂:', reply_markup=reply_markup)
 
-
+    update.message.reply_text('Nothing to help.This is way to simple 😂😂', reply_markup=reply_markup)
+    
 def contact(update, context):
     keyboard = [[InlineKeyboardButton(
         "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
