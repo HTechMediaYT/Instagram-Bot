@@ -32,19 +32,28 @@ def acc_type(val):
 # Start the Bot
 
 
-def start(update, context):
+def start(update, context):    keyboard = [[InlineKeyboardButton(
+        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+  
     id = update.message.chat_id
     name = update.message.from_user['username']
     update.message.reply_html(welcome_msg)
 
 
 def help_msg(update, context):
+     keyboard = [[InlineKeyboardButton(
+        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+   
     update.message.reply_text("Nothing to help ,This is way to simple 😂😂")
 
 
 def contact(update, context):
     keyboard = [[InlineKeyboardButton(
-        "Devoloper", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support", url=f"telegram.me/HTechMedia")], ]
+        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
