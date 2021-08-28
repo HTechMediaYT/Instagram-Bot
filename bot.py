@@ -16,7 +16,7 @@ welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  <i>Send me anyones instagram username to get their DP</i>
  ex : <b>nxtstark</b> , <b>h_tech_media</b> etc
  
- <b>Made By @HTechMedia+@NxtStark</b>'''
+ <b>Made By @HTechMedia @NxtStark</b>'''
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
