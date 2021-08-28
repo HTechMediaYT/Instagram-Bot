@@ -17,16 +17,6 @@ welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  ex : <b>nxtstark</b> , <b>h_tech_media</b> etc
  
  <b>Made By @HTechMedia</b>'''
-START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Channel🏡', url='https://telegram.me/HTechMedia'),
-        InlineKeyboardButton('Support🦼', url='https://telegram.me/HTechMediaSupport')
-        ],[
-        InlineKeyboardButton('Creator🚀', url='https://telegram.me/NxtStark'),
-        InlineKeyboardButton('Website🪐', url='https://htechmediayt.wixsite.com/htechmedia'),
-        InlineKeyboardButton('Youtube🌏', url='https://youtube.com/c/HTechMedia')
-        ]]
-    )
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
@@ -45,15 +35,13 @@ def acc_type(val):
 def start(update, context):
     id = update.message.chat_id
     name = update.message.from_user['username']
-    keyboard = 
-        [[
-        InlineKeyboardButton('Channel🏡', url='https://telegram.me/HTechMedia'),
-        InlineKeyboardButton('Support🦼', url='https://telegram.me/HTechMediaSupport')
-        ],[
-        InlineKeyboardButton('Creator🚀', url='https://telegram.me/NxtStark'),
-        InlineKeyboardButton('Website🪐', url='https://htechmediayt.wixsite.com/htechmedia'),
-        InlineKeyboardButton('Youtube🌏', url='https://youtube.com/c/HTechMedia')
+     keyboard = [[InlineKeyboardButton(
+        "Channel🏡", url=f"https://telegram.me/HTechMedia"),[InlineKeyboardButton("Support🦼", url=f"https://telegram.me/HTechMediaSupport")],[
+        InlineKeyboardButton("Creator🚀", url=f"https://telegram.me/NxtStark"),
+        InlineKeyboardButton("Website🪐", url=f"https://htechmediayt.wixsite.com/htechmedia"),
+        InlineKeyboardButton("Youtube🌏", url=f"https://youtube.com/c/HTechMedia")
         ],]
+
      
     reply_markup = InlineKeyboardMarkup(keyboard)
     
