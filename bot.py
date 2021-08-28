@@ -36,10 +36,10 @@ def start(update, context):
     id = update.message.chat_id
     name = update.message.from_user['username']
      keyboard = [[InlineKeyboardButton(
-        "Channel🏡", url=f"https://telegram.me/HTechMedia"),[InlineKeyboardButton("Support🦼", url=f"https://telegram.me/HTechMediaSupport")],[
-        InlineKeyboardButton("Creator🚀", url=f"https://telegram.me/NxtStark"),
-        InlineKeyboardButton("Website🪐", url=f"https://htechmediayt.wixsite.com/htechmedia"),
-        InlineKeyboardButton("Youtube🌏", url=f"https://youtube.com/c/HTechMedia")
+        "Channel🏡", url=f"https://telegram.me/HTechMedia")],[InlineKeyboardButton("Support🦼", url=f"https://telegram.me/HTechMediaSupport")],[
+        InlineKeyboardButton("Creator🚀", url=f"https://telegram.me/NxtStark")],
+        [InlineKeyboardButton("Website🪐", url=f"https://htechmediayt.wixsite.com/htechmedia")],
+        [InlineKeyboardButton("Youtube🌏", url=f"https://youtube.com/c/HTechMedia")
         ],]
 
      
@@ -49,7 +49,7 @@ def start(update, context):
      
 def help_msg(update, context):
     keyboard = [[InlineKeyboardButton(
-        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
+        "Devoloper👀", url=f"https://telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"https://telegram.me/HTechMediaSupport")], ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
