@@ -46,7 +46,7 @@ def start(update, context):
     id = update.message.chat_id
     name = update.message.from_user['username']
     update.message.reply_html(welcome_msg),
-    reply_markup=START_BUTTONS
+    keyboard = START_BUTTONS
 
 def help_msg(update, context):
     keyboard = [[InlineKeyboardButton(
