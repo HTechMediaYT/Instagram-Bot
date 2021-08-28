@@ -16,7 +16,7 @@ welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  <i>Send me anyones instagram username to get their DP</i>
  ex : <b>nxtstark</b> , <b>h_tech_media</b> etc
  
- <b>Made By @HTechMedia</b>'''
+ <b>Made By @HTechMedia+@NxtStark</b>'''
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
@@ -62,8 +62,8 @@ def username(update, context):
     chat_id = update.message.chat_id
     try:
         user = Profile.from_username(L.context, query)
-        caption_msg = f'''📛*Name*📛: {user.full_name} \n😁*Followers*😁: {user.followers} \n🤩*Following*🤩: {user.followees}\
-         \n🧐*Account Type*🧐: {acc_type(user.is_private)} \nThank You For Using The bot 😀😀 \n\n*@NxtStark❤*'''
+        caption_msg = f'''📛*Name*📛: {user.full_name} \n💑*Followers*💑: {user.followers} \n👦*Following*👦: {user.followees}\
+         \🔒n*Account Type*🔓: {acc_type(user.is_private)} \nThank You For Using The bot ☺🤗 \n\n*@NxtStark❤*'''
         context.bot.send_photo(
             chat_id=chat_id, photo=user.profile_pic_url,
             caption=caption_msg, parse_mode='MARKDOWN')
