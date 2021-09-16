@@ -1,6 +1,5 @@
 ## Instagram DP Saver Bot
-
-### A telegram bot to get a anyone's Instagram DP
+#### A telegram bot to get a anyone's Instagram DP
 
 ## Dependencies
 
