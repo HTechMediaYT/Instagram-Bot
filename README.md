@@ -57,7 +57,15 @@
 ## You can deploy the bot yourself here(The easy way)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/anishgowda21/Instagram_DP_Saver_Bot)
+    
+## Configs
 
+* `BOT_TOKEN` Bot token from [@BotFather](https://telegram.dog/BotFather)
+
+* `APP_NAME` Enter your heroku app name
+    
+* `TELEGRAM_USERNAME` Enter your telegram username    
+    
 ### Note
 
 ```
