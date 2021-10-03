@@ -11,12 +11,23 @@ L = Instaloader()
 TOKEN = os.getenv("BOT_TOKEN")
 APP_NAME = os.getenv("APP_NAME")
 TELEGRAM_USERNAME = os.getenv("TELEGRAM_USERNAME")
+START_IMG = os.getenv("START_IMG")
 
 welcome_msg = '''<b>Welcome To the Bot</b>🖐🖐
  <i>Send me anyones instagram username to get their DP</i>
  ex : <b>nxtstark</b> , <b>h_tech_media</b> etc
  
- <b>Made By @HTechMedia @NxtStark</b>'''
+<b>Made With ❤ By @HTechMedia</b>'''
+
+key_oard = '''[
+                 [
+                    InlineKeyboardButton("✨ Channel ✨", url=f"https://telegram.me/HTechMedia"),
+                    InlineKeyboardButton("⚡️ Support ⚡️", url=f"https://telegram.me/HTechMediaSupport")
+                  ],[
+                    InlineKeyboardButton("❄️ YouTube ❄️", url=f"https://youtube.com/c/HTechMedia")
+                 ]
+              ]'''
+
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
@@ -32,26 +43,45 @@ def acc_type(val):
 # Start the Bot
 
 
-def start(update, context):
+def start(update, context):        
     id = update.message.chat_id
     name = update.message.from_user['username']
-    update.message.reply_html(welcome_msg)   
+    keyboard = [
+                  [
+                     InlineKeyboardButton("✨ Channel ✨", url=f"https://telegram.me/HTechMedia"),
+                     InlineKeyboardButton("⚡️ Support ⚡️", url=f"https://telegram.me/HTechMediaSupport")
+                   ],[
+                     InlineKeyboardButton("❄️ YouTube ❄️", url=f"https://youtube.com/c/HTechMedia")
+                  ]
+                ]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)   
+    
+    update.message.reply_html(welcome_msg, reply_markup=reply_markup)   
      
 def help_msg(update, context):
-    keyboard = [[InlineKeyboardButton(
-        "Devoloper👀", url=f"https://telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"https://telegram.me/HTechMediaSupport")], ]
+    keyboard = [
+                  [
+                     InlineKeyboardButton("Devoloper 👀", url=f"https://telegram.me/NxtStark"),
+                     InlineKeyboardButton("Support 😎", url=f"https://telegram.me/HTechMediaSupport")
+                  ]
+                ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     update.message.reply_text('Nothing to help.This is way to simple 😂😂', reply_markup=reply_markup)
     
 def contact(update, context):
-    keyboard = [[InlineKeyboardButton(
-        "Devoloper👀", url=f"telegram.me/NxtStark")],[InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMedia")], ]
+    keyboard = [
+                 [
+                    InlineKeyboardButton("Devoloper👀", url=f"telegram.me/NxtStark"),
+                    InlineKeyboardButton("Support😎", url=f"telegram.me/HTechMediaSupport")
+                 ]
+               ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text('Contact The Maker:', reply_markup=reply_markup)
+    update.message.reply_text('Contact The Devoloper:', reply_markup=reply_markup)
 
 # get the username and send the DP
 
@@ -63,7 +93,7 @@ def username(update, context):
     try:
         user = Profile.from_username(L.context, query)
         caption_msg = f'''📛*Name*📛: {user.full_name} \n💑*Followers*💑: {user.followers} \n👦*Following*👦: {user.followees}\
-         \n⚡*Account Type*⚡: {acc_type(user.is_private)} \nThank You For Using The bot ☺🤗 \n\n*@NxtStark❤*'''
+         \n⚡*Account Type*⚡: {acc_type(user.is_private)} \nThank You For Using The bot ☺🤗 \n\n*@HTechMedia❤*'''
         context.bot.send_photo(
             chat_id=chat_id, photo=user.profile_pic_url,
             caption=caption_msg, parse_mode='MARKDOWN')
@@ -97,3 +127,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
